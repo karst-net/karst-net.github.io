@@ -1,0 +1,17 @@
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+<!-- Copyright the Karst contributors. -->
+<!doctype html>
+<html lang="en">
+  <head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Karst quickstart</title></head>
+  <body><main>
+    <h1>Karst quickstart</h1>
+    <p>Open the Karst administration console and complete <strong>First-run setup</strong>. You need the public HTTPS URL of your coordination server.</p>
+    <ol>
+      <li>Enter the public server URL in <strong>First-run setup</strong>.</li>
+      <li>Create a one-time enrolment key. Copy it immediately; it is shown only once.</li>
+      <li>Install the Karst node package on the machine you want to connect. Put the one-time key in <code>[control] setup_key</code> in <code>/etc/karst/karstd.toml</code>, alongside the server URL and pins from the installation guide. Validate it with <code>sudo karstd check --config /etc/karst/karstd.toml</code>, then start it with <code>sudo systemctl enable --now karstd</code>. There is no <code>karst up</code> command.</li>
+      <li>Open <strong>Machines</strong> and confirm the new node has a current observation and crypto posture.</li>
+    </ol>
+    <p>If the node is absent or stale, check its service logs and confirm its coordination-server URL before generating another key. Never paste a one-time key into a ticket, chat, or shell history you do not control.</p>
+  </main></body>
+</html>
