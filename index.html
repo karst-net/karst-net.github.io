@@ -19,6 +19,8 @@
         <nav aria-label="Main navigation">
           <a href="#why">Why Karst</a>
           <a href="#how">How it works</a>
+          <a href="#components">Components</a>
+          <a href="#clients">Clients</a>
           <a href="#where">Where it fits</a>
         </nav>
         <a class="nav-link" href="https://github.com/karst-net/karst">View the project <span aria-hidden="true">↗</span></a>
@@ -27,7 +29,7 @@
       <main id="main">
         <section class="hero" id="top">
           <div class="hero-copy">
-            <p class="eyebrow"><span></span> private networking, naturally</p>
+            <p class="eyebrow"><span></span> beta · feature and platform testing</p>
             <h1>Your network should flow <em>where you do.</em></h1>
             <p class="intro">Karst helps your people, devices, and services find each other safely — across clouds, offices, homes, and the far edge of the map.</p>
             <div class="actions">
@@ -35,7 +37,7 @@
               <a class="text-link" href="#how">Take the 90-second tour <span aria-hidden="true">↓</span></a>
             </div>
             <div class="trust-row" aria-label="Key qualities">
-              <span>Zero Trust</span><b></b><span>Post-quantum</span><b></b><span>Self-hosted</span>
+              <span>Zero Trust</span><b></b><span>Post-quantum</span><b></b><span>Self-hosted</span><b></b><span>Beta</span>
             </div>
           </div>
           <div class="hero-panel" aria-label="Karst explorers: a bat, otter, mole, and raccoon equipped for the underground">
@@ -67,14 +69,23 @@
         </section>
 
         <section class="field-guide" id="components">
-          <div class="guide-intro"><p class="eyebrow"><span></span> meet the field team</p><h2>Every Karst component has a job to do.</h2><p>These are the specialists that help your private network stay discoverable, connected, and grounded.</p></div>
+          <div class="guide-intro"><p class="eyebrow"><span></span> meet the field team</p><h2>Every Karst component has a job to do.</h2><p>These are the specialists we are testing together: the client and control plane, private naming, connectivity, and a verifiable membership root.</p></div>
           <div class="guide-grid">
-            <article class="guide-card"><div class="mascot mascot-bat" role="img" aria-label="Bat Karst mascot"></div><div class="component-copy"><p class="component-kicker">KARSTDNS <span class="planned">PLANNED</span></p><h3>Bat</h3><p class="tagline">Sees all. Navigates darkness.</p><p>Gives your mesh memorable private names, so you reach the right service without keeping track of addresses.</p></div></article>
-            <article class="guide-card"><div class="mascot mascot-otter" role="img" aria-label="Otter Karst mascot"></div><div class="component-copy"><p class="component-kicker">AVEN</p><h3>Otter</h3><p class="tagline">Adapts. Flows through any environment.</p><p>Finds the best route between two devices — even when everyday network obstacles get in the way.</p></div></article>
-            <article class="guide-card"><div class="mascot mascot-mole" role="img" aria-label="Mole Karst mascot"></div><div class="component-copy"><p class="component-kicker">PONOR / RELAY</p><h3>Mole</h3><p class="tagline">Built for the deep. Uncovers the hidden.</p><p>Provides an encrypted bridge when a direct path is not possible, keeping the mesh moving.</p></div></article>
-            <article class="guide-card"><div class="mascot mascot-raccoon" role="img" aria-label="Raccoon Karst mascot"></div><div class="component-copy"><p class="component-kicker">BEDROCK <span class="planned">PLANNED</span></p><h3>Raccoon</h3><p class="tagline">Resourceful. Solves every challenge.</p><p>Adds a network lock: a practical way to keep membership rooted in the people you trust.</p></div></article>
+            <article class="guide-card"><div class="mascot mascot-bat" role="img" aria-label="Bat Karst mascot"></div><div class="component-copy"><p class="component-kicker">KARSTDNS <span class="beta">BETA</span></p><h3>Bat</h3><p class="tagline">Sees all. Navigates darkness.</p><p>Gives your mesh memorable private names, so you reach the right service without keeping track of addresses.</p></div></article>
+            <article class="guide-card"><div class="mascot mascot-otter" role="img" aria-label="Otter Karst mascot"></div><div class="component-copy"><p class="component-kicker">AVEN <span class="beta">BETA</span></p><h3>Otter</h3><p class="tagline">Adapts. Flows through any environment.</p><p>Finds the best route between two devices — even when everyday network obstacles get in the way.</p></div></article>
+            <article class="guide-card"><div class="mascot mascot-mole" role="img" aria-label="Mole Karst mascot"></div><div class="component-copy"><p class="component-kicker">PONOR / RELAY <span class="beta">BETA</span></p><h3>Mole</h3><p class="tagline">Built for the deep. Uncovers the hidden.</p><p>Provides an encrypted bridge when a direct path is not possible, keeping the mesh moving.</p></div></article>
+            <article class="guide-card"><div class="mascot mascot-raccoon" role="img" aria-label="Raccoon Karst mascot"></div><div class="component-copy"><p class="component-kicker">BEDROCK <span class="beta">BETA</span></p><h3>Raccoon</h3><p class="tagline">Resourceful. Solves every challenge.</p><p>Adds a network lock: a practical way to keep membership rooted in the people you trust.</p></div></article>
           </div>
-          <div class="protocol-line"><span>PHREATIC</span><p>The underground passageway: Karst’s post-quantum handshake and encrypted transport, carrying traffic safely between your approved peers.</p></div>
+          <div class="protocol-line"><span>PHREATIC + CONTROL</span><p>PHREATIC provides the post-quantum handshake and encrypted transport. <code>karstd</code> runs on each client; <code>karst-control</code>, the admin console, and the portal handle enrollment, identity, policy, audit, relay/TURN configuration, invitations, and device lifecycle. Subnet routing, exit nodes, ACL-gated SSH, metrics, and diagnostics are part of the beta feature set.</p></div>
+        </section>
+
+        <section class="client-platforms" id="clients" aria-labelledby="clients-heading">
+          <div><p class="eyebrow"><span></span> supported beta clients</p><h2 id="clients-heading">One mesh, three desktop platforms.</h2><p>We are testing the same Karst network across each supported client. Mobile and FreeBSD clients are not beta targets.</p></div>
+          <div class="platform-grid">
+            <article><h3>Linux</h3><p>x86-64 and arm64. Debian/RHEL packages, systemd, desktop setup, TUN or userspace networking, and mesh DNS.</p></article>
+            <article><h3>macOS</h3><p>Apple Silicon and Intel. Signed/notarized packages, LaunchDaemon, menu-bar status, TUN or userspace networking, and mesh DNS.</p></article>
+            <article><h3>Windows</h3><p>x64. MSI, Windows service, userspace networking, and NRPT DNS. Wintun distribution and release-signing validation continue during beta.</p></article>
+          </div>
         </section>
 
         <section class="plain-language" id="zero-trust">
@@ -109,7 +120,7 @@
           <div><p class="eyebrow"><span></span> your network, your ground</p><h2>Self-hosted by design.</h2><p>Run your own coordination server and relay infrastructure. Karst is built for people who want the simplicity of a modern mesh VPN without handing over the keys to their network.</p><a class="button button-dark" href="https://github.com/karst-net/karst">See the project on GitHub <span aria-hidden="true">↗</span></a></div>
         </section>
 
-        <aside class="status-note" aria-label="Project status"><span class="status-pin">!</span><div><strong>Karst is early, on purpose.</strong><p>This project is pre-alpha and has not had external security or cryptographic review. It is for learning, testing, and review — not production deployment yet.</p></div><a href="https://github.com/karst-net/karst#caveats-stated-plainly">Read the caveats <span aria-hidden="true">→</span></a></aside>
+        <aside class="status-note" aria-label="Project status"><span class="status-pin">!</span><div><strong>Karst is in beta.</strong><p>We are testing every feature and each supported client platform with design partners. It is not a production or general-availability release, and it has not had external security or cryptographic review.</p></div><a href="https://github.com/karst-net/karst#beta-caveats-stated-plainly">Read the caveats <span aria-hidden="true">→</span></a></aside>
       </main>
 
       <footer><a class="brand" href="#top"><img src="assets/karst_logo.png" alt="Karst — Explore, connect, secure" /></a><p>Explore · Connect · Secure</p><a href="https://github.com/karst-net/karst">GitHub <span aria-hidden="true">↗</span></a><span>© 2026 Karst</span></footer>
