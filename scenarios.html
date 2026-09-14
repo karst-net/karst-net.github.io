@@ -31,7 +31,7 @@
         <section class="statement" id="top">
           <p class="eyebrow"><span></span> field notes</p>
           <h2>Nine moments people actually asked for.</h2>
-          <p>These are the situations beta testers describe when we ask why they wanted Karst — mostly things it already handles well. A couple, it doesn't, and we'd rather you hear that from us than find out the hard way.</p>
+          <p>These are the situations beta testers describe when we ask why they wanted Karst. Most are things it already handles directly; two turned out to need a recipe built from existing pieces rather than a built-in feature — and we'd rather show our work than let either sound simpler than it is.</p>
         </section>
 
         <section class="feature-grid scenario-cards" aria-label="Scenarios Karst supports today">
@@ -45,6 +45,8 @@
 
           <article class="feature feature-sand"><p class="number">SC-05</p><h3>See where a device you administer goes.</h3><p>Run the exit node yourself for a computer you hold admin rights on, and its traffic becomes visible at your own gateway — no hidden reporting, nothing new to build. It only works for a device you administer; Karst won't force this onto one you don't.</p><p class="component-kicker">EXIT NODE · LOCAL ADMIN CONSENT</p></article>
 
+          <article class="feature feature-blue"><p class="number">SC-06</p><h3>Filter the web on your own schedule.</h3><p>Point a device's DNS at a filtering resolver you choose, and get category blocking plus time-of-day rules from it directly — no new Karst feature involved. It's DNS-based, so it can be routed around by a browser with its own built-in resolver, the same limit any network-level filtering has.</p><p class="component-kicker">GROUP-SCOPED DNS UPSTREAM</p></article>
+
           <article class="feature feature-teal"><p class="number">SC-07</p><h3>Show one teammate what's on localhost.</h3><p>Point a single coworker at your work-in-progress server for a quick look — no public tunnel, no exposed port, nothing standing between the two of you but a policy rule you can delete when the review's done.</p><p class="component-kicker">DIRECT PEER PATH</p></article>
 
           <article class="feature feature-sand"><p class="number">SC-08</p><h3>See where your mesh actually lives.</h3><p>Relay regions and path telemetry tell your infrastructure team where clients really connect from, so relay placement follows your people instead of a guess.</p><p class="component-kicker">RELAY REGISTRY · TELEMETRY</p></article>
@@ -52,13 +54,13 @@
           <article class="feature feature-blue"><p class="number">SC-09</p><h3>Retire the VPN concentrator.</h3><p>Move off OpenVPN or AWS VPN on your own schedule: stand up Karst alongside what you have, cut over deliberately, and keep default-deny access control the whole way through.</p><p class="component-kicker">SELF-HOSTED CONTROL PLANE</p></article>
         </section>
 
-        <aside class="status-note" aria-label="What Karst does not do">
+        <aside class="status-note" aria-label="Where SC-05 and SC-06 have real edges">
           <span class="status-pin">!</span>
           <div>
-            <strong>SC-06 isn't here — on purpose.</strong>
-            <p>Time-of-day and content-category filtering aren't built yet. And SC-05 above has a real edge: it only works for a device you already administer — Karst deliberately never lets an account owner force a device onto an exit route without whoever runs that machine agreeing first, even if that's not you.</p>
+            <strong>SC-05 and SC-06 are recipes, not built-in reports.</strong>
+            <p>Both work by pointing a device you administer at infrastructure you already control — an exit node, or a filtering DNS resolver — not by Karst watching or filtering anything itself. Neither one works against a device its own user administers, and Karst still has no general way to schedule non-web access by time of day. We'd rather say so than let the cards above sound bigger than they are.</p>
           </div>
-          <a href="https://github.com/karst-net/karst/blob/main/docs/CUSTOMER-SCENARIOS.md">Read why <span aria-hidden="true">→</span></a>
+          <a href="https://github.com/karst-net/karst/blob/main/docs/CUSTOMER-SCENARIOS.md">Read the details <span aria-hidden="true">→</span></a>
         </aside>
 
         <section class="statement">
