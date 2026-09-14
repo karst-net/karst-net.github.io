@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Nine real situations people bring to Karst — where it already helps, and the two places it honestly doesn't yet." />
+    <meta name="theme-color" content="#063b45" />
+    <title>Karst — Where it fits</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <header class="nav">
+        <a class="brand" href="index.html#top" aria-label="Karst home"><img src="assets/karst_logo.png" alt="Karst — Explore, connect, secure" /></a>
+        <nav aria-label="Main navigation">
+          <a href="index.html#why">Why Karst</a>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#components">Components</a>
+          <a href="index.html#clients">Clients</a>
+          <a href="index.html#where">Where it fits</a>
+          <a href="scenarios.html" aria-current="page">Scenarios</a>
+        </nav>
+        <a class="nav-link" href="https://github.com/karst-net/karst">View the project <span aria-hidden="true">↗</span></a>
+      </header>
+
+      <main id="main">
+        <section class="statement" id="top">
+          <p class="eyebrow"><span></span> field notes</p>
+          <h2>Nine moments people actually asked for.</h2>
+          <p>These are the situations beta testers describe when we ask why they wanted Karst — mostly things it already handles well. A couple, it doesn't, and we'd rather you hear that from us than find out the hard way.</p>
+        </section>
+
+        <section class="feature-grid scenario-cards" aria-label="Scenarios Karst supports today">
+          <article class="feature feature-blue"><p class="number">SC-01</p><h3>Coffee shop Wi-Fi becomes a non-issue.</h3><p>The moment Karst is up, the network you're sitting on stops mattering. Every connection is encrypted and authenticated before it ever reaches the shop's router.</p><p class="component-kicker">ZERO TRUST · PHREATIC HANDSHAKE</p></article>
+
+          <article class="feature feature-teal"><p class="number">SC-02</p><h3>Bring your home network with you.</h3><p>Route your travel connection through a device you already trust back home, so the far side sees your own network instead of a hotel's. Whether the destination is fine with that is between you and it.</p><p class="component-kicker">CONSENTED EXIT NODE</p></article>
+
+          <article class="feature feature-sand"><p class="number">SC-03</p><h3>Print the form. Just the form.</h3><p>Reach one printer on your home network from the road — and nothing else on it. The route goes exactly where you point it, not the whole house.</p><p class="component-kicker">SUBNET ROUTE · SCOPED ACL</p></article>
+
+          <article class="feature feature-blue"><p class="number">SC-04</p><h3>Grab the file, not the network.</h3><p>Reach a restricted file share while you're away, limited to the same people who were always allowed near it. Karst's default-deny policy and the share's own login are separate, additive checks.</p><p class="component-kicker">SUBNET ROUTE · GROUP POLICY</p></article>
+
+          <article class="feature feature-teal"><p class="number">SC-07</p><h3>Show one teammate what's on localhost.</h3><p>Point a single coworker at your work-in-progress server for a quick look — no public tunnel, no exposed port, nothing standing between the two of you but a policy rule you can delete when the review's done.</p><p class="component-kicker">DIRECT PEER PATH</p></article>
+
+          <article class="feature feature-sand"><p class="number">SC-08</p><h3>See where your mesh actually lives.</h3><p>Relay regions and path telemetry tell your infrastructure team where clients really connect from, so relay placement follows your people instead of a guess.</p><p class="component-kicker">RELAY REGISTRY · TELEMETRY</p></article>
+
+          <article class="feature feature-blue"><p class="number">SC-09</p><h3>Retire the VPN concentrator.</h3><p>Move off OpenVPN or AWS VPN on your own schedule: stand up Karst alongside what you have, cut over deliberately, and keep default-deny access control the whole way through.</p><p class="component-kicker">SELF-HOSTED CONTROL PLANE</p></article>
+        </section>
+
+        <aside class="status-note" aria-label="What Karst does not do">
+          <span class="status-pin">!</span>
+          <div>
+            <strong>SC-05 and SC-06 aren't here — on purpose.</strong>
+            <p>Karst doesn't give a parent or admin a log of a device's browsing activity, and its access rules don't have a time-of-day dimension or content-category filtering yet. If what you need is "see what my kid visits" or "block certain sites after 8pm," Karst isn't the right tool today.</p>
+          </div>
+          <a href="https://github.com/karst-net/karst/blob/main/docs/CUSTOMER-SCENARIOS.md">Read why <span aria-hidden="true">→</span></a>
+        </aside>
+
+        <section class="statement">
+          <p class="eyebrow"><span></span> the full picture</p>
+          <h2>Every scenario, traced to how it works.</h2>
+          <p>Each scenario above (and the two that aren't) is written up in detail alongside the formal use cases it maps to — the config shape, the caveats, and what Karst deliberately doesn't claim.</p>
+          <div class="actions" style="margin-top:28px">
+            <a class="button button-primary" href="https://github.com/karst-net/karst/blob/main/docs/CUSTOMER-SCENARIOS.md">Read the scenario catalog <span aria-hidden="true">↗</span></a>
+            <a class="text-link" href="index.html#how">See how Karst works <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+      </main>
+
+      <footer><a class="brand" href="index.html#top"><img src="assets/karst_logo.png" alt="Karst — Explore, connect, secure" /></a><p>Explore · Connect · Secure</p><a href="https://github.com/karst-net/karst">GitHub <span aria-hidden="true">↗</span></a><span>© 2026 Karst</span></footer>
+    </div>
+  </body>
+</html>
