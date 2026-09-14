@@ -43,6 +43,8 @@
 
           <article class="feature feature-blue"><p class="number">SC-04</p><h3>Grab the file, not the network.</h3><p>Reach a restricted file share while you're away, limited to the same people who were always allowed near it. Karst's default-deny policy and the share's own login are separate, additive checks.</p><p class="component-kicker">SUBNET ROUTE · GROUP POLICY</p></article>
 
+          <article class="feature feature-sand"><p class="number">SC-05</p><h3>See where a device you administer goes.</h3><p>Run the exit node yourself for a computer you hold admin rights on, and its traffic becomes visible at your own gateway — no hidden reporting, nothing new to build. It only works for a device you administer; Karst won't force this onto one you don't.</p><p class="component-kicker">EXIT NODE · LOCAL ADMIN CONSENT</p></article>
+
           <article class="feature feature-teal"><p class="number">SC-07</p><h3>Show one teammate what's on localhost.</h3><p>Point a single coworker at your work-in-progress server for a quick look — no public tunnel, no exposed port, nothing standing between the two of you but a policy rule you can delete when the review's done.</p><p class="component-kicker">DIRECT PEER PATH</p></article>
 
           <article class="feature feature-sand"><p class="number">SC-08</p><h3>See where your mesh actually lives.</h3><p>Relay regions and path telemetry tell your infrastructure team where clients really connect from, so relay placement follows your people instead of a guess.</p><p class="component-kicker">RELAY REGISTRY · TELEMETRY</p></article>
@@ -53,8 +55,8 @@
         <aside class="status-note" aria-label="What Karst does not do">
           <span class="status-pin">!</span>
           <div>
-            <strong>SC-05 and SC-06 aren't here — on purpose.</strong>
-            <p>Karst doesn't give a parent or admin a log of a device's browsing activity — we looked at building it and decided against it, since it would mean quietly watching a person rather than managing a device. Time-of-day and content-category filtering aren't built yet, but stay open. If what you need is "see what my kid visits" or "block certain sites after 8pm," Karst isn't the right tool today.</p>
+            <strong>SC-06 isn't here — on purpose.</strong>
+            <p>Time-of-day and content-category filtering aren't built yet. And SC-05 above has a real edge: it only works for a device you already administer — Karst deliberately never lets an account owner force a device onto an exit route without whoever runs that machine agreeing first, even if that's not you.</p>
           </div>
           <a href="https://github.com/karst-net/karst/blob/main/docs/CUSTOMER-SCENARIOS.md">Read why <span aria-hidden="true">→</span></a>
         </aside>
