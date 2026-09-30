@@ -9,6 +9,7 @@ It is a static site with no build step — edit the files and push.
 |---|---|
 | `index.html` | The landing page |
 | `scenarios.html` | Non-technical scenario hooks, sourced from `docs/CUSTOMER-SCENARIOS.md` in the [karst](https://github.com/karst-net/karst) repository |
+| `performance.html` | Karst vs. WireGuard/Nebula/Headscale/Tailscale throughput and latency, sourced from `docs/measurements/vpn-comparison-2026-09-30.md` in the [karst](https://github.com/karst-net/karst) repository |
 | `quickstart.html` | The enrolment quickstart |
 | `install.html` | Per-platform install and admin-console configuration steps |
 | `styles.css` | All styling for the landing page |

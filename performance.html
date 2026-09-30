@@ -1,0 +1,123 @@
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+<!-- Copyright the Karst contributors. -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Karst measured against WireGuard, Nebula, Headscale, and Tailscale on the same LAN with the same instrument — and why that's an apples-to-oranges comparison in Karst's favor." />
+    <meta name="theme-color" content="#063b45" />
+    <title>Karst — Performance</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <header class="nav">
+        <a class="brand" href="index.html#top" aria-label="Karst home"><img src="assets/karst_logo.png" alt="Karst — Explore, connect, secure" /></a>
+        <nav aria-label="Main navigation">
+          <a href="index.html#why">Why Karst</a>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#components">Components</a>
+          <a href="index.html#clients">Clients</a>
+          <a href="index.html#where">Where it fits</a>
+          <a href="scenarios.html">Scenarios</a>
+          <a href="performance.html" aria-current="page">Performance</a>
+        </nav>
+        <a class="nav-link" href="https://github.com/karst-net/karst">View the project <span aria-hidden="true">↗</span></a>
+      </header>
+
+      <main id="main">
+        <section class="statement" id="top">
+          <p class="eyebrow"><span></span> performance, measured</p>
+          <h2>Comparing Karst's speed to WireGuard's isn't quite fair to WireGuard.</h2>
+          <p>Every row below except Karst's does the same job with classical, pre-quantum cryptography — Curve25519 key exchange, the thing every mesh VPN built on WireGuard shares. Karst does a full post-quantum key establishment (ML-KEM-1024) and a post-quantum signature (ML-DSA-65) — algorithms NIST standardized for exactly this — on every connection, alongside established cryptography. That's real per-packet work the others simply don't do. We measured it anyway, on the same lab link, with the same instrument, back to back.</p>
+        </section>
+
+        <div class="compare-wrap">
+          <table class="compare-table">
+            <caption>Single TCP + single UDP stream, 500 Mbps offered, <code>turing</code> ↔ <code>lovelace</code> over a 3×1G bonded LAN link. Full methodology and raw data linked below.</caption>
+            <thead>
+              <tr>
+                <th scope="col">Tool</th>
+                <th scope="col">TCP</th>
+                <th scope="col">UDP</th>
+                <th scope="col">UDP jitter / loss</th>
+                <th scope="col">Ping avg / p99</th>
+                <th scope="col">Idle CPU / RSS</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr class="compare-pq">
+                <th scope="row"><span class="pq-star" title="NIST-standardized post-quantum key establishment and signatures">PQ</span>Karst</th>
+                <td>806.6 Mbps</td>
+                <td>499.9 Mbps</td>
+                <td>0.012 ms / 0.42%</td>
+                <td>0.590 / 0.622 ms</td>
+                <td>0.1% / 9.9 MB</td>
+              </tr>
+              <tr>
+                <th scope="row">WireGuard <span class="beta">floor reference</span></th>
+                <td>900.0 Mbps</td>
+                <td>499.9 Mbps</td>
+                <td>0.007 ms / 0.00%</td>
+                <td>0.570 / 0.603 ms</td>
+                <td>N/A (kernel)</td>
+              </tr>
+              <tr>
+                <th scope="row">Nebula</th>
+                <td>817.2 Mbps</td>
+                <td>499.9 Mbps</td>
+                <td>0.010 ms / 0.01%</td>
+                <td>0.651 / 0.730 ms</td>
+                <td>0.4% / 24.9 MB</td>
+              </tr>
+              <tr>
+                <th scope="row">Headscale</th>
+                <td>887.2 Mbps</td>
+                <td>499.9 Mbps</td>
+                <td>0.017 ms / 1.08%</td>
+                <td>0.816 / 0.966 ms</td>
+                <td>4.5% / 85.4 MB</td>
+              </tr>
+              <tr>
+                <th scope="row">Tailscale</th>
+                <td>887.2 Mbps</td>
+                <td>499.9 Mbps</td>
+                <td>0.015 ms / 0.02%</td>
+                <td>0.902 / 0.924 ms</td>
+                <td>2.4% / 82.5 MB</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <p class="compare-legend"><span class="pq-star" aria-hidden="true" style="margin-right:6px">PQ</span> marks the one row here doing post-quantum key establishment and signatures on every connection. WireGuard is the floor: a bare point-to-point kernel tunnel with no control plane at all, included as the reference every control-plane-mediated tool (Karst included) pays some cost against. Read this as "Karst is competitive with tools doing strictly less cryptographic work," not as a ranking — on a quiet, uncontended LAN, all five land within a fairly narrow band.</p>
+
+        <aside class="status-note" aria-label="What this measurement is and isn't">
+          <span class="status-pin">!</span>
+          <div>
+            <strong>One lab LAN, one sitting, beta software throughout.</strong>
+            <p>This is a single real-hardware run between two lab machines on one link — not a multi-site, multi-condition study, and Karst itself is beta with no external cryptographic review yet (see the <a href="https://github.com/karst-net/karst/blob/main/docs/SECURITY-WHITEPAPER.md">security whitepaper</a>). Multi-stream scaling, NAT/relay-forced paths, and reconvergence timing weren't measured here and are called out as open follow-ups in the full write-up.</p>
+          </div>
+          <a href="https://github.com/karst-net/karst/blob/main/docs/measurements/vpn-comparison-2026-09-30.md">Read the full methodology <span aria-hidden="true">→</span></a>
+        </aside>
+
+        <section class="statement">
+          <p class="eyebrow"><span></span> the big idea</p>
+          <h2>Built for tomorrow's maths, without giving up today's speed.</h2>
+          <p>Harvest-now-decrypt-later means traffic encrypted with only classical cryptography today can be recorded and read once a sufficiently capable quantum computer exists. Karst's PHREATIC handshake closes that gap using NIST-standardized algorithms on every session — and still keeps pace with tools that don't.</p>
+          <div class="actions" style="margin-top:28px">
+            <a class="button button-primary" href="index.html#pq">What “post-quantum” means <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="https://github.com/karst-net/karst/blob/main/scripts/vpn-compare/">See the benchmark harness <span aria-hidden="true">↗</span></a>
+          </div>
+        </section>
+      </main>
+
+      <footer><a class="brand" href="index.html#top"><img src="assets/karst_logo.png" alt="Karst — Explore, connect, secure" /></a><p>Explore · Connect · Secure</p><a href="https://github.com/karst-net/karst">GitHub <span aria-hidden="true">↗</span></a><span>© 2026 Karst</span></footer>
+    </div>
+  </body>
+</html>
