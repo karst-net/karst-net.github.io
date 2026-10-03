@@ -209,3 +209,36 @@ footer a:not(.brand){margin-left:0}
 @media(max-width:820px){.scenario-cards{grid-template-columns:1fr 1fr}}
 @media(max-width:480px){.scenario-cards{grid-template-columns:1fr}}
 .mascot{background-size:auto 80%;background-position:center}
+
+/* Mesh vs. classic VPN */
+.mesh-vs{background:#1b1c18;padding:128px max(32px,calc((100% - 1136px)/2))}
+.mesh-vs h2{font:600 clamp(2.65rem,5vw,4.6rem)/.98 Fraunces,serif;letter-spacing:-.055em;margin:0}
+.mesh-intro{max-width:700px}
+.mesh-intro>p:last-child{color:var(--muted);font-size:17px;line-height:1.6;margin:24px 0 0}
+.path-compare{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:54px 0 14px}
+.path-card{margin:0;background:#22251f;border:1px solid rgba(226,223,197,.14);padding:24px}
+.path-card-mesh{border-color:var(--water)}
+.path-card svg{display:block;width:100%;height:auto;max-height:230px}
+.path-card svg text{font:500 11px "DM Mono",monospace;fill:var(--ink)}
+.path-card line{stroke-width:2.5;stroke-linecap:round}
+.p-long{stroke:var(--coral);stroke-dasharray:2 7}
+.p-direct{stroke:var(--water);stroke-width:4!important}
+.p-ghost{stroke:var(--muted);opacity:.35;stroke-dasharray:3 6}
+.n-dev{fill:var(--ink)}.n-hub{fill:var(--coral)}.n-relay{fill:none;stroke:var(--muted);stroke-width:2;stroke-dasharray:3 3}
+.n-hub+text{fill:#151612!important}
+.path-card figcaption strong{display:block;font:600 22px Fraunces,serif;letter-spacing:-.03em;margin:14px 0 6px;color:#f0ead1}
+.path-card figcaption span{color:#b9b59b;font-size:14px;line-height:1.55}
+.physics{margin:14px 0 14px;padding:28px 30px;border-left:3px solid var(--water);background:#22251f}
+.physics p{margin:0;color:#c4c0a4;line-height:1.65;max-width:860px}
+.physics p+p{margin-top:14px}
+.physics .physics-label{font:500 11px "DM Mono",monospace;letter-spacing:.1em;color:var(--water);margin-bottom:12px}
+.physics a{color:var(--ink)}
+.benefit-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:14px}
+.benefit-grid article{padding:25px;background:#22251f;border:1px solid rgba(226,223,197,.14)}
+.benefit-no{font:500 12px "DM Mono",monospace;color:var(--water)}
+.benefit-grid h3{font:600 22px/1.1 Fraunces,serif;letter-spacing:-.035em;margin:14px 0 10px;color:#f0ead1}
+.benefit-grid p{margin:0;color:#b9b59b;font-size:14px;line-height:1.55}
+.mesh-note{margin:34px 0 0}
+@media(max-width:1000px){.benefit-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:820px){.mesh-vs{padding:85px 22px}.path-compare{grid-template-columns:1fr}}
+@media(max-width:480px){.benefit-grid{grid-template-columns:1fr}.physics{padding:22px}}
