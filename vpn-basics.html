@@ -1,0 +1,148 @@
+<!-- SPDX-License-Identifier: AGPL-3.0-or-later -->
+<!-- Copyright the Karst contributors. -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="What a VPN actually is, what it does and doesn't hide, and why a padlock icon in your browser isn't the same thing as safety — explained without assuming any networking background." />
+    <meta name="theme-color" content="#063b45" />
+    <title>Karst — VPN basics, in plain language</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:opsz,wght@9..144,600;9..144,700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="page-shell">
+      <header class="nav">
+        <a class="brand" href="index.html#top" aria-label="Karst home"><img src="assets/karst_logo.png" alt="Karst — Explore, connect, secure" /></a>
+        <nav aria-label="Main navigation">
+          <a href="vpn-basics.html" aria-current="page">VPN basics</a>
+          <a href="index.html#why">Why Karst</a>
+          <a href="index.html#how">How it works</a>
+          <a href="index.html#mesh">Why a mesh</a>
+          <a href="index.html#components">Components</a>
+          <a href="index.html#clients">Clients</a>
+          <a href="scenarios.html">Scenarios</a>
+          <a href="performance.html">Performance</a>
+        </nav>
+        <a class="nav-link" href="https://github.com/karst-net/karst">View the project <span aria-hidden="true">↗</span></a>
+      </header>
+
+      <main id="main">
+        <section class="statement" id="top">
+          <p class="eyebrow"><span></span> no networking background required</p>
+          <h2>What a VPN actually does.</h2>
+          <p>You don't need to know how packets work to decide whether you need one. This page answers two plain questions — what is a VPN, and what does it actually protect — using the situations people usually have in mind when they ask: a coffee shop, an ISP they'd rather not hand their browsing history to, and a trip somewhere they don't fully trust the local network.</p>
+        </section>
+
+        <section class="plain-language" aria-label="Two plain-language definitions">
+          <div class="language-card">
+            <p class="eyebrow"><span></span> question one</p>
+            <h2>What is a VPN?</h2>
+            <p>A Virtual Private Network makes a private, encrypted tunnel between your device and another point on the internet — in Karst's case, a server you or your organization runs. Once that tunnel is up, your device's traffic travels through it before going anywhere else.</p>
+            <p class="fine-print">Think of it as a sealed pipe laid across a public road. The road is still public. What's inside the pipe isn't.</p>
+          </div>
+          <div class="language-card language-card-pq">
+            <p class="eyebrow"><span></span> question two</p>
+            <h2>What does a VPN do?</h2>
+            <p>Two things, specifically: it encrypts your traffic so whatever network you're physically connected to can't read it, and it hides your true destination and IP address from that same network, since all it can see is one encrypted stream going to your VPN.</p>
+            <p class="fine-print">Everyone downstream of the VPN — including the VPN operator itself — can still see where that stream ultimately goes. More on that below.</p>
+          </div>
+        </section>
+
+        <section class="statement">
+          <p class="eyebrow"><span></span> three situations</p>
+          <h2>The same tunnel, three different reasons to want it.</h2>
+          <p>A VPN solves one mechanical problem — hiding your traffic from whatever network sits between you and the internet. Who that network belongs to, and why you don't trust it, changes from one situation to the next.</p>
+        </section>
+
+        <section class="feature-grid" aria-label="Common reasons people reach for a VPN">
+          <article class="feature feature-teal"><div class="feature-icon lock-icon" aria-hidden="true">☕</div><p class="number">01</p><h3>The coffee shop hotspot</h3><p>Anyone else on that Wi-Fi — or whoever runs the router — sits on the same local network as you. Without a VPN, they can see which sites and apps you're reaching and how much data moves, even if they can't read the content itself. A VPN encrypts your traffic before it reaches their router, so there's nothing local to watch.</p></article>
+          <article class="feature feature-sand"><div class="feature-icon crystal-icon" aria-hidden="true">⌁</div><p class="number">02</p><h3>Not trusting your ISP</h3><p>Your home or mobile provider sees every destination you visit by default — that's simply how routing works — and in many places it's legally allowed, sometimes required, to log or sell that history. A VPN moves that visibility from your ISP to wherever your VPN server sits, which is the whole point if you run that server yourself.</p></article>
+          <article class="feature feature-blue"><div class="feature-icon route-icon" aria-hidden="true"><i></i><i></i><i></i></div><p class="number">03</p><h3>Traveling somewhere you don't trust</h3><p>A hotel, airport, or national network abroad can watch, log, block, or redirect traffic the same way any ISP can — sometimes with a government looking at those logs. A VPN back to a network you trust keeps the local network from seeing your destinations, though some countries also try to detect and block VPN traffic itself.</p></article>
+        </section>
+
+        <section class="mesh-vs" id="visibility" aria-labelledby="visibility-heading">
+          <div class="mesh-intro">
+            <p class="eyebrow"><span></span> content vs. metadata</p>
+            <h2 id="visibility-heading">HTTPS hides the page. It doesn't hide that you opened it.</h2>
+            <p>"Content" is the actual page, message, or file — the thing HTTPS (the padlock in your address bar) already scrambles end to end. "Metadata" is everything around it: which site, when, from where, and how much data. HTTPS was never designed to hide that part, because the network still needs to know where to route your traffic.</p>
+          </div>
+
+          <div class="path-compare">
+            <figure class="path-card">
+              <svg viewBox="0 0 320 200" role="img" aria-label="Without a VPN: your traffic passes visibly through the Wi-Fi hotspot and ISP on its way to the site.">
+                <line class="p-long" x1="60" y1="150" x2="160" y2="35"/><line class="p-long" x1="260" y1="150" x2="160" y2="35"/>
+                <circle class="n-hub" cx="160" cy="35" r="17"/><text x="160" y="39" text-anchor="middle">ISP</text>
+                <circle class="n-dev" cx="60" cy="150" r="14"/><circle class="n-dev" cx="260" cy="150" r="14"/>
+                <text x="60" y="184" text-anchor="middle">You</text><text x="260" y="184" text-anchor="middle">Site</text>
+              </svg>
+              <figcaption><strong>Without a VPN: metadata rides in the open</strong><span>HTTPS still scrambles the page itself, but your Wi-Fi hotspot and your ISP can both see which site you're reaching, when, and roughly how much data moved — that part has to stay readable for the network to deliver it.</span></figcaption>
+            </figure>
+            <figure class="path-card path-card-mesh">
+              <svg viewBox="0 0 320 200" role="img" aria-label="With a VPN: the Wi-Fi hotspot and ISP see only a sealed tunnel, not the destination inside it.">
+                <line class="p-direct" x1="60" y1="150" x2="160" y2="35"/><line class="p-direct" x1="260" y1="150" x2="160" y2="35"/>
+                <circle class="n-relay" cx="160" cy="35" r="17"/><text x="160" y="39" text-anchor="middle">ISP</text>
+                <circle class="n-dev" cx="60" cy="150" r="14"/><circle class="n-dev" cx="260" cy="150" r="14"/>
+                <text x="60" y="184" text-anchor="middle">You</text><text x="260" y="184" text-anchor="middle">Site</text>
+              </svg>
+              <figcaption><strong>With a VPN: the network sees a sealed tunnel</strong><span>Your traffic leaves the device already wrapped in the VPN's own encryption. The hotspot and ISP can tell a tunnel is running, but not which site is on the other end of it.</span></figcaption>
+            </figure>
+          </div>
+
+          <div class="compare-wrap" style="margin:14px 0 0;padding:0">
+            <table class="compare-table">
+              <caption>What each onlooker can actually see, with HTTPS alone and with a VPN added underneath it.</caption>
+              <thead>
+                <tr><th scope="col">Who could be watching</th><th scope="col">Without a VPN (HTTPS only)</th><th scope="col">With a VPN</th></tr>
+              </thead>
+              <tbody>
+                <tr><th scope="row">Wi-Fi hotspot</th><td>Sees the site/app and roughly how much data moved. Can't read the page content.</td><td>Sees one encrypted stream to your VPN. Destination and content both hidden.</td></tr>
+                <tr><th scope="row">Your ISP</th><td>Logs every destination you reach this way, by default, for as long as policy or law requires.</td><td>Sees your VPN's address only. Your real destinations stay off its logs.</td></tr>
+                <tr><th scope="row">A network you're visiting</th><td>Same visibility as any ISP, plus the ability to block or redirect specific sites.</td><td>Sees an encrypted tunnel, and that a VPN is in use — which some networks try to block outright.</td></tr>
+                <tr><th scope="row">The site or service itself</th><td>Always sees the content — that's unavoidable, it's the other end of the conversation — plus your real IP address.</td><td>Still sees the content, but sees your VPN's IP address in place of yours.</td></tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="compare-legend">HTTPS and a VPN protect different things, not competing ones: HTTPS protects content end to end regardless of network; a VPN protects metadata from whatever network you're physically sitting on. Neither one makes the other unnecessary.</p>
+        </section>
+
+        <section class="statement">
+          <p class="eyebrow"><span></span> the padlock, explained</p>
+          <h2>A green padlock means “encrypted to someone my device trusts.” Not “safe.”</h2>
+          <p>HTTPS encrypts the conversation between your browser and a server, and your browser checks that server's certificate against a list of certificate authorities it already trusts. When that check passes, the padlock appears. For almost every connection you make, that's a solid guarantee — nobody in between can read or tamper with the traffic.</p>
+        </section>
+
+        <div class="physics">
+          <p class="physics-label">WHERE THE PADLOCK CAN LIE TO YOU</p>
+          <p>The loophole is in "a list it already trusts." If something can add its own certificate authority to that list, it can sit in the middle, decrypt your traffic, read it, and re-encrypt it on its way to the real site — and your browser still shows the same green padlock, because as far as it knows the connection really is secure, just to the interceptor first. This is a documented, legitimate feature on many managed laptops and phones (often sold as security monitoring), and the same technique shows up on hostile hotspots that ask you to "install our certificate to join the Wi-Fi" and on some national networks.</p>
+          <p>A VPN genuinely helps with part of this: if your device's trust store hasn't already been tampered with, a VPN tunnel wraps your DNS lookups and TLS handshakes before they ever touch the local network, so a captive portal or airport Wi-Fi never gets the chance to offer a substitute certificate — there's nothing exposed for it to intercept. What a VPN cannot do is undo a root certificate that was already installed on your device beforehand, through a work profile or otherwise. At that point the interception is happening on the device itself, not on the network in between, and no VPN can see around that.</p>
+        </div>
+
+        <aside class="status-note" aria-label="What a VPN can't fix">
+          <span class="status-pin">!</span>
+          <div>
+            <strong>A VPN protects the network path. It can't protect a device that already trusts the wrong certificate.</strong>
+            <p>If a "secure" site ever looks wrong, check your device's certificate or trust settings — especially on a work-managed phone or laptop. No VPN, Karst included, can see or override a trust decision your own device already made.</p>
+          </div>
+          <a href="index.html#zero-trust">Why Karst still checks identity on top of encryption <span aria-hidden="true">→</span></a>
+        </aside>
+
+        <section class="statement">
+          <p class="eyebrow"><span></span> who you end up trusting instead</p>
+          <h2>A VPN doesn't remove the need for trust. It relocates it.</h2>
+          <p>Every row in the table above still has a last line: with a VPN, <em>something</em> sees your real destinations — it's just the VPN operator instead of your ISP or the local Wi-Fi. With most commercial VPNs, that's a company whose logging policy you're taking on faith. Karst is self-hosted, so that something is you, or your own organization, running infrastructure you already control — not a trade you're asked to make blind.</p>
+          <div class="actions" style="margin-top:28px">
+            <a class="button button-primary" href="scenarios.html">See real scenarios <span aria-hidden="true">→</span></a>
+            <a class="text-link" href="index.html#self-hosted">Why self-hosted matters <span aria-hidden="true">→</span></a>
+          </div>
+        </section>
+      </main>
+
+      <footer><a class="brand" href="index.html#top"><img src="assets/karst_logo.png" alt="Karst — Explore, connect, secure" /></a><p>Explore · Connect · Secure</p><a href="https://github.com/karst-net/karst">GitHub <span aria-hidden="true">↗</span></a><span>© 2026 Karst</span></footer>
+    </div>
+  </body>
+</html>
