@@ -35,7 +35,7 @@
         <section class="statement" id="top">
           <p class="eyebrow"><span></span> performance, measured</p>
           <h2>Comparing Karst's speed to WireGuard's isn't quite fair to WireGuard.</h2>
-          <p>Every row below except Karst's does the same job with classical, pre-quantum cryptography — Curve25519 key exchange, the thing every mesh VPN built on WireGuard shares. Karst does a full post-quantum key establishment (ML-KEM-1024) and a post-quantum signature (ML-DSA-65) — algorithms NIST standardized for exactly this — on every connection, alongside established cryptography. That's real per-packet work the others simply don't do. We measured it anyway, on the same lab link, with the same instrument, back to back.</p>
+          <p>Every row below except Karst's does the same job with classical, pre-quantum cryptography — Curve25519 key exchange, the thing every mesh VPN built on WireGuard shares. Karst does a full post-quantum key establishment (ML-KEM-1024) and a post-quantum signature (ML-DSA-65) — algorithms NIST standardized for exactly this — on every connection, alongside established cryptography. That's real connection-establishment work the others simply don't do. We measured it anyway, on the same lab link, with the same instrument, back to back.</p>
         </section>
 
         <div class="compare-wrap">
@@ -106,6 +106,14 @@
           </div>
           <a href="https://github.com/karst-net/karst/blob/main/docs/measurements/vpn-comparison-2026-09-30.md">Read the full methodology <span aria-hidden="true">→</span></a>
         </aside>
+
+        <section class="statement" id="mesh-performance">
+          <p class="eyebrow"><span></span> shorter paths, stronger protection</p>
+          <h2>A little more cryptography. A lot less distance.</h2>
+          <p>Post-quantum protection can add computation and larger handshake messages compared with classical algorithms (see <a href="https://www.rfc-editor.org/rfc/rfc9958.html">the IETF's engineering overview</a>). A mesh can offset that extra setup time by connecting peers directly, while placing relays close to clients can keep fallback paths short too. Shorter routes reduce network delay; they don't make the cryptographic operations themselves faster.</p>
+          <p>For an illustrative example, assume a distant central gateway gives two clients a <strong>35&nbsp;ms round-trip time</strong>, a nearby relay gives them <strong>10&nbsp;ms</strong>, and a direct mesh path gives them <strong>5&nbsp;ms</strong>. Those shorter paths save <strong>25–30&nbsp;ms per round trip</strong>. Even if post-quantum processing added <strong>2&nbsp;ms to connection setup</strong>, that hypothetical cost would be smaller than the network saving on just one round trip, with the shorter path continuing to benefit later requests.</p>
+          <p class="fine-print">These are assumed values to explain the tradeoff, not Karst benchmarks or a prediction of handshake time. Actual results depend on hardware, handshake message sizes, bandwidth, routing, congestion, and relay placement. Nearby relays help when they shorten the complete client-to-client route; they cannot remove the distance between far-apart peers. The measurements above cover a single lab LAN only.</p>
+        </section>
 
         <section class="statement">
           <p class="eyebrow"><span></span> the big idea</p>
