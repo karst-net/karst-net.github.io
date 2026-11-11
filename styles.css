@@ -219,7 +219,7 @@ footer a:not(.brand){margin-left:0}
 .p-long{stroke:var(--coral);stroke-dasharray:2 7}
 .p-direct{stroke:var(--water);stroke-width:4!important}
 .p-ghost{stroke:var(--muted);opacity:.35;stroke-dasharray:3 6}
-.n-dev{fill:var(--ink)}.n-hub{fill:var(--coral)}.n-relay{fill:none;stroke:var(--muted);stroke-width:2;stroke-dasharray:3 3}
+.n-dev{fill:var(--ink)}.n-hub{fill:var(--coral)}.n-estavelle{fill:none;stroke:var(--muted);stroke-width:2;stroke-dasharray:3 3}
 .n-hub+text{fill:#151612!important}
 .path-card figcaption strong{display:block;font:600 22px Fraunces,serif;letter-spacing:-.03em;margin:14px 0 6px;color:#f0ead1}
 .path-card figcaption span{color:#b9b59b;font-size:14px;line-height:1.55}
